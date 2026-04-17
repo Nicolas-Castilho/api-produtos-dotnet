@@ -24,9 +24,10 @@ namespace MinhaPrimeiraApi.Controllers
         [HttpPost]
         public ActionResult Post(Produto produto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
             _context.Produtos.Add(produto);
             _context.SaveChanges();
-
             return Ok(produto);
         }
 
