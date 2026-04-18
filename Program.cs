@@ -1,5 +1,6 @@
-using MinhaPrimeiraApi.Data;
 using Microsoft.EntityFrameworkCore;
+using MinhaPrimeiraApi.Data;
+using MinhaPrimeiraApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         builder.Configuration.GetConnectionString("DefaultConnection"),
         ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
     ));
+
+builder.Services.AddScoped<ProdutoService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

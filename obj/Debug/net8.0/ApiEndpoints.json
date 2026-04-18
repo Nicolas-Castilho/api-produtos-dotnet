@@ -28,12 +28,38 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "produto",
-        "Type": "MinhaPrimeiraApi.Models.Produto",
+        "Name": "dto",
+        "Type": "MInhaPrimeiraApi.DTOs.ProdutoDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MinhaPrimeiraApi.Controllers.ProdutosController",
+    "Method": "GetById",
+    "RelativePath": "Produtos/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MinhaPrimeiraApi.Models.Produto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "MinhaPrimeiraApi.Controllers.ProdutosController",
@@ -49,8 +75,8 @@
         "IsRequired": true
       },
       {
-        "Name": "produtoAtualizado",
-        "Type": "MinhaPrimeiraApi.Models.Produto",
+        "Name": "dto",
+        "Type": "MInhaPrimeiraApi.DTOs.ProdutoDto",
         "IsRequired": true
       }
     ],

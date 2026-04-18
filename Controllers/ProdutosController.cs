@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MinhaPrimeiraApi.Data;
 using MinhaPrimeiraApi.Models;
+using MinhaPrimeiraApi.Services;
+using MInhaPrimeiraApi.DTOs;
 
 namespace MinhaPrimeiraApi.Controllers
 {
@@ -8,57 +9,45 @@ namespace MinhaPrimeiraApi.Controllers
     [Route("[controller]")]
     public class ProdutosController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly ProdutoService _service;
 
-        public ProdutosController(AppDbContext context)
+        public ProdutosController(ProdutoService service)
         {
-            _context = context;
+            _service = service;
         }
 
-        [HttpGet]
-        public ActionResult<IEnumerable<Produto>> Get()
+        [HttpGet("{id}")]
+        public ActionResult<Produto> GetById(int id)
         {
-            return Ok(_context.Produtos.ToList());
-        }
+            var produto = _service.GetById(id);
 
-        [HttpPost]
-        public ActionResult Post(Produto produto)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-            _context.Produtos.Add(produto);
-            _context.SaveChanges();
+            if (produto == null)
+                return NotFound();
+
             return Ok(produto);
         }
 
+        [HttpPost]
+        public ActionResult Post(ProdutoDto dto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var produto = _service.Create(dto.Nome, dto.Preco);
+
+            return CreatedAtAction(nameof(GetById), new { id = produto.Id }, produto);
+        }
+
         [HttpPut("{id}")]
-        public IActionResult Update(int id, Produto produtoAtualizado)
+        public IActionResult Update(int id, ProdutoDto dto)
         {
-            var produto = _context.Produtos.Find(id);
+            var atualizado = _service.Update(id, dto.Nome, dto.Preco);
 
-            if (produto == null)
+            if (!atualizado)
                 return NotFound();
-
-            produto.Nome = produtoAtualizado.Nome;
-            produto.Preco = produtoAtualizado.Preco;
-
-            _context.SaveChanges();
 
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            var produto = _context.Produtos.Find(id);
-
-            if (produto == null)
-                return NotFound();
-
-            _context.Produtos.Remove(produto);
-            _context.SaveChanges();
-
-            return NoContent();
-        }
     }
 }

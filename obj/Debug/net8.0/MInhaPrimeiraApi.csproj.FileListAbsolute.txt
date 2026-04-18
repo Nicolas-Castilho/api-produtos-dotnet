@@ -33,6 +33,7 @@ C:\Users\Nicolas\source\repos\MInhaPrimeiraApi.Solution\MInhaPrimeiraApi\obj\Deb
 C:\Users\Nicolas\source\repos\MInhaPrimeiraApi.Solution\MInhaPrimeiraApi\obj\Debug\net8.0\MInhaPrimeiraApi.csproj.CoreCompileInputs.cache
 C:\Users\Nicolas\source\repos\MInhaPrimeiraApi.Solution\MInhaPrimeiraApi\obj\Debug\net8.0\MInhaPrimeiraApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Nicolas\source\repos\MInhaPrimeiraApi.Solution\MInhaPrimeiraApi\obj\Debug\net8.0\MInhaPrimeiraApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Nicolas\source\repos\MInhaPrimeiraApi.Solution\MInhaPrimeiraApi\obj\Debug\net8.0\MInhaPrimeiraApi.sourcelink.json
 C:\Users\Nicolas\source\repos\MInhaPrimeiraApi.Solution\MInhaPrimeiraApi\obj\Debug\net8.0\rjimswa.dswa.cache.json
 C:\Users\Nicolas\source\repos\MInhaPrimeiraApi.Solution\MInhaPrimeiraApi\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 C:\Users\Nicolas\source\repos\MInhaPrimeiraApi.Solution\MInhaPrimeiraApi\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
